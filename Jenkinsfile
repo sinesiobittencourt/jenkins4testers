@@ -3,23 +3,34 @@ pipeline {
         stages {
             stage("Build"){
                 steps {
-                sh 'git pull origin master'
+                sh 'cd /opt/lampp/htdocs/Public/addGoogleCalendar/'
                 sh '''
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
             }
             }
-            stage("Tests"){
+            stage("git pull"){
                 steps{
-                sh "echo 'Simulando um teste'"
+                sh "git pull origin master'"
                 }
             }
-            stage("Tests 2"){
+            stage("add"){
                 steps{
-                sh "echo 'Simulando um teste'"
+                sh "git add *"
                 }
             }
+            stage("commit"){
+                steps{
+                sh "git commit -m 'Update'"
+                }
+            }
+            stage("push"){
+                steps{
+                sh "git push origin master"
+                }
+            }
+            
             
         }
 }

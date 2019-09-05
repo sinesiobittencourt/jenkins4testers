@@ -1,10 +1,5 @@
 pipeline {
     agent any
-    /*agent {
-        docker{
-            image "ruby"
-        }
-    }*/
         stages {
             stage("Build"){
                 steps {

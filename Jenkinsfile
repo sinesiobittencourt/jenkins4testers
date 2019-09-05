@@ -15,15 +15,10 @@ pipeline {
                 sh "echo 'Simulando um teste'"
                 }
             }
-            stage("email"){
-                post {
-    failure {
-        mail to: 'team@example.com',
-             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-             body: "Something is wrong with ${env.BUILD_URL}"
-    }
-}
-
+            stage("Tests 2"){
+                steps{
+                sh "echo 'Simulando um teste'"
+                }
             }
             
         }

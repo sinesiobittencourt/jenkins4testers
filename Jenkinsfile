@@ -1,9 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        docker{
+            image "ruby"
+        }
+    }
         stages {
             stage("Build"){
                 steps {
-                sh 'cd /opt/lampp/htdocs/Public/addGoogleCalendar/'
+                sh ' echo "oi"'
                 sh '''
                     echo "Multiline shell steps works too"
                     ls -lah
@@ -14,23 +18,6 @@ pipeline {
                 steps{
                 sh "git pull origin master"
                 }
-            }
-            stage("add"){
-                steps{
-                sh "git add *"
-                }
-            }
-            stage("commit"){
-                steps{
-                sh "git commit -m 'Update'"
-                }
-            }
-            stage("push"){
-                steps{
-                sh "git push origin master"
-                }
-            }
-            
-            
+            }                     
         }
 }

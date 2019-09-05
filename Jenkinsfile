@@ -17,5 +17,14 @@ pipeline {
             }
             
         }
-    
+}
+
+pipeline{
+    post {
+    failure {
+        mail to: 'contato@sinesio.com.br',
+             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Something is wrong with ${env.BUILD_URL}"
+    }
+    }
 }

@@ -5,14 +5,14 @@ pipeline {
                 steps {
                 sh 'cd /opt/lampp/htdocs/Public/addGoogleCalendar/'
                 sh '''
-                    echo "Multiline shell steps works too"
+                    git pull origin master
                     ls -lah
                 '''
             }
             }
             stage("git pull"){
                 steps{
-                sh "git pull origin master'"
+                sh "git pull origin master"
                 }
             }
             stage("add"){
